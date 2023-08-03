@@ -4,7 +4,7 @@
 * Add an DBUpdater written in Go, to update local SQLite database
 * Change realtime.js, let the links point to SteamDB.info
 
-Try to let it run on a personal computers without any extra setups.
+This fork aids to let it run on a personal computer without any extra setups.
 
 # SteamWebPipes
 
