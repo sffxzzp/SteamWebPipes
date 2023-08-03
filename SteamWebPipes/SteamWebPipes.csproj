@@ -3,16 +3,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <RollForward>LatestMajor</RollForward>
     <OutputType>Exe</OutputType>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <DebugType>embedded</DebugType>
-    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Fleck" Version="1.2.0" />
-    <PackageReference Include="MySqlConnector" Version="2.0.0" />
-    <PackageReference Include="SteamKit2" Version="2.4.0-Alpha.3" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.9" />
+    <PackageReference Include="SteamKit2" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <None Update="settings.json">

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MySqlConnector;
+using Microsoft.Data.Sqlite;
 using Dapper;
 
 namespace SteamWebPipes.Events
@@ -37,7 +37,7 @@ namespace SteamWebPipes.Events
                 {
                     try
                     {
-                        using var db = new MySqlConnection(Bootstrap.Config.DatabaseConnectionString);
+                        using var db = new SqliteConnection(Bootstrap.Config.DatabaseConnectionString);
 
                         foreach (var app in db.Query<AppData>("SELECT `AppID`, `Name`, `LastKnownName` FROM `Apps` WHERE `AppID` IN @Apps", new { changelist.Apps }))
                         {
@@ -51,7 +51,7 @@ namespace SteamWebPipes.Events
                             }
                         }
                     }
-                    catch (MySqlException e)
+                    catch (SqliteException e)
                     {
                         Bootstrap.Log("{0}", e.Message);
                     }
@@ -72,14 +72,14 @@ namespace SteamWebPipes.Events
                 {
                     try
                     {
-                        using var db = new MySqlConnection(Bootstrap.Config.DatabaseConnectionString);
+                        using var db = new SqliteConnection(Bootstrap.Config.DatabaseConnectionString);
 
                         foreach (var sub in db.Query<PackageData>("SELECT `SubID`, `LastKnownName` FROM `Subs` WHERE `SubID` IN @Packages", new { changelist.Packages }))
                         {
                             packages[sub.SubID] = sub.LastKnownName;
                         }
                     }
-                    catch (MySqlException e)
+                    catch (SqliteException e)
                     {
                         Bootstrap.Log("{0}", e.Message);
                     }
