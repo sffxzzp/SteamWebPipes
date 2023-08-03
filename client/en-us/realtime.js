@@ -8,8 +8,10 @@
 	const GetTime = function()
 	{
 		const date = new Date();
-		let hh = date.getUTCHours();
-		let mm = date.getUTCMinutes();
+		//let hh = date.getUTCHours();
+		let hh = date.getHours();
+		//let mm = date.getUTCMinutes();
+		let mm = date.getMinutes();
 		let ss = date.getSeconds();
 
 		if( hh < 10 )
@@ -119,7 +121,7 @@
 
 				case 'Changelist':
 				{
-					let str = 'Changelist <a href="/changelist/' + data.ChangeNumber + '/" class="muted" rel="nofollow">#' + data.ChangeNumber + '</a>';
+					let str = 'Changelist <a href="https://steamdb.info/changelist/' + data.ChangeNumber + '/" target="_blank" class="muted" rel="nofollow">#' + data.ChangeNumber + '</a>';
 
 					let list = [];
 
@@ -127,7 +129,7 @@
 					{
 						appid = +appid;
 						value = value.replace( /&/g, '&amp;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' );
-						list.push( `<a href="/app/${appid}/history/" target="_blank" rel="noopener">${value}</a>` );
+						list.push( `<a href="https://steamdb.info/app/${appid}/history/" target="_blank" rel="noopener">${value}</a>` );
 					}
 
 					if( list.length )
@@ -141,7 +143,7 @@
 					{
 						subid = +subid;
 						value = value.replace( /&/g, '&amp;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' );
-						list.push( `<a href="/sub/${subid}/history/" target="_blank" rel="noopener">${value}</a>` );
+						list.push( `<a href="https://steamdb.info/sub/${subid}/history/" target="_blank" rel="noopener">${value}</a>` );
 					}
 
 					if( list.length )

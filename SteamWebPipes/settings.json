@@ -1,5 +1,5 @@
 ﻿{
-	"Location": "ws://0.0.0.0:8181",
-	"DatabaseConnectionString": "",
+	"Location": "ws://127.0.0.1:8181",
+	"DatabaseConnectionString": "Data Source=database.db;",
 	"X509Certificate": "cert.pfx"
 }

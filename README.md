@@ -1,3 +1,11 @@
+# About this fork
+
+* Using SQLite database instead of MySQL
+* Add an DBUpdater written in Go, to update local SQLite database
+* Change realtime.js, let the links point to SteamDB.info
+
+Try to let it run on a personal computers without any extra setups.
+
 # SteamWebPipes
 
 Uses Steam's PICS changelist system and retransmits it to clients via WebSockets.
