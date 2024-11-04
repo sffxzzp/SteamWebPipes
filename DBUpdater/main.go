@@ -91,7 +91,7 @@ func (s *SteamWebPipes) getSubsData() *Subs {
 		var subdata SubJson
 		json.Unmarshal(httpRead(httpGet(url)), &subdata)
 		fmt.Printf("%d / %d\n", start, subdata.TotalCount)
-		page = int(math.Floor(float64(subdata.TotalCount-subdata.Start) / 100))
+		page = int(math.Ceil(float64(subdata.TotalCount-start) / 100))
 		start += 100
 		doc := parseHTML(subdata.ResultsHTML)
 		doc.Find("a").Each(func(_ int, node *goquery.Selection) {
@@ -146,7 +146,4 @@ func main() {
 	pipes := newPipes("./database.db")
 	pipes.updateApps()
 	pipes.updateSubs()
-	fmt.Println("Update finished!\nPress enter to exit.")
-	var inputStr string
-	fmt.Scanln(&inputStr)
 }
